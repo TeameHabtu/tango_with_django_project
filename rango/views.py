@@ -64,10 +64,10 @@ def add_page(request, category_name_slug):
         category = Category.objects.get(slug=category_name_slug)
     except Category.DoesNotExist:
         category = None
-    
+
     if category is None:
         return redirect(reverse("rango:index"))
-    
+
     form = PageForm()
     if request.method == "POST":
         form = PageForm(request.POST)
@@ -84,8 +84,6 @@ def add_page(request, category_name_slug):
             print("The form isn't valid!")
             print(form.errors)
     return render(request, 'rango/add_page.html', {'form': form, 'category': category})
-
-               
 
 
 def register(request):
@@ -122,7 +120,7 @@ def register(request):
 
 @login_required
 def restricted(request):
-    return HttpResponse("Since you're logged in, you can see this text!")
+    return render(request, 'rango/restricted.html')
 
 
 def user_login(request):
