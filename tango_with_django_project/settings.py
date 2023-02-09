@@ -99,6 +99,27 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
+PASSWORD_HASHERS = (
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+)
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.BCryptPasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+]
+
+
+AUTH_PASSWORD_VALIDATORS = [
+   
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': { 'min_length': 6, }
+    },
+   
+]
 
 LANGUAGE_CODE = 'en-us'
 
@@ -116,3 +137,4 @@ STATICFILES_DIRS = [STATIC_DIR, ]
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
+LOGIN_URL = 'rango:login'
