@@ -45,6 +45,9 @@ Homepage
     {% endif %}
 </div>
 <div>
+{% if user.is_authenticated %}
+    <a href="{% url 'rango:add_category' %}">Add a New Category</a><br />
+{% endif %}
     <img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" />
 </div>
 {% endblock %}
